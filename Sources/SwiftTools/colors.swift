@@ -8,7 +8,7 @@
 import Foundation
 import SwiftUI
 
-extension Color {
+public extension Color {
     init(hex: String) {
         let hex = hex.droppingLeadingPoundSign()
         var rgbValue: UInt64 = 0
@@ -22,7 +22,7 @@ extension Color {
     }
 }
 
-extension String {
+public extension String {
     func droppingLeadingPoundSign() -> String {
         if starts(with: "#") {
             return String(dropFirst())
