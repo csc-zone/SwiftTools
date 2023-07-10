@@ -8,6 +8,7 @@
 import Foundation
 import StoreKit
 
+#if os(iOS)
 public enum AppStoreReviewManager {
     private static let actionCountKey = "AppStoreReviewManager_actionCount"
     private static let lastReviewedAppVersionKey = "AppStoreReviewManager_lastReviewedAppVersion"
@@ -42,3 +43,4 @@ public enum AppStoreReviewManager {
         }
     }
 }
+#endif
