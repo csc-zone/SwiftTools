@@ -9,7 +9,7 @@ import Foundation
 import SwiftUI
 
 public extension UIColor {
-    init?(hex: String) {
+    convenience init?(hex: String) {
         let r, g, b, a: CGFloat
 
         if hex.hasPrefix("#") {
