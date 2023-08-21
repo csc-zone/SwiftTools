@@ -29,7 +29,7 @@ public extension View {
 public struct DeferView<Content: View>: View {
     let content: () -> Content
 
-    init(@ViewBuilder _ content: @escaping () -> Content) {
+    public init(@ViewBuilder _ content: @escaping () -> Content) {
         self.content = content
     }
     
