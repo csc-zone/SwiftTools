@@ -59,10 +59,10 @@ public extension String {
     }
 
     var pathExtension: String {
-        return fileURL?.pathExtension ?? ""
+        return fileURL.pathExtension
     }
     
     var lastPathComponent: String {
-        return fileURL?.lastPathComponent ?? ""
+        return fileURL.lastPathComponent
     }
 }
