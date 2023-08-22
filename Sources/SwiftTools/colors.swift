@@ -74,15 +74,6 @@ public extension Color {
     }
 }
 
-public extension String {
-    func droppingLeadingPoundSign() -> String {
-        if starts(with: "#") {
-            return String(dropFirst())
-        }
-        return self
-    }
-}
-
 public struct Theme {
     public static var stone50 = SwiftUI.Color(hex: "#fafaf9")
     public static var stone100 = SwiftUI.Color(hex: "#f5f5f4")

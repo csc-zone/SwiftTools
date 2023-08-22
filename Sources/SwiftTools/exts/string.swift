@@ -9,9 +9,16 @@ import Foundation
 import SwiftUI
 
 public extension String {
-    
+
     var localizedName: LocalizedStringKey {
         return LocalizedStringKey(self)
+    }
+
+    func droppingLeadingPoundSign() -> String {
+        if starts(with: "#") {
+            return String(dropFirst())
+        }
+        return self
     }
     
     func removePrefix(_ prefix: String) -> String {
@@ -45,5 +52,17 @@ public extension String {
     subscript(_ range: CountablePartialRangeFrom<Int>) -> String {
         let start = index(startIndex, offsetBy: max(0, range.lowerBound))
          return String(self[start...])
+    }
+
+    var fileURL: URL {
+        return URL(fileURLWithPath: self)
+    }
+
+    var pathExtension: String {
+        return fileURL?.pathExtension ?? ""
+    }
+    
+    var lastPathComponent: String {
+        return fileURL?.lastPathComponent ?? ""
     }
 }
