@@ -65,4 +65,8 @@ public extension String {
     var lastPathComponent: String {
         return fileURL.lastPathComponent
     }
+
+    var lessLastPathComponent: String {
+        return fileURL.deletingPathExtension().lastPathComponent
+    }
 }
