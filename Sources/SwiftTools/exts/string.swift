@@ -58,6 +58,10 @@ public extension String {
         return URL(fileURLWithPath: self)
     }
 
+    var toURL: URL? {
+        return URL(string: self)
+    }
+
     var pathExtension: String {
         return fileURL.pathExtension
     }
