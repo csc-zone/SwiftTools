@@ -38,6 +38,21 @@ public extension Date {
         }
     }
 
+    static func parseEpgDate(_ date: String?) -> Date? {
+        guard let date = date else { return nil }
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "yyyyMMddHHmmss Z"
+        return dateFormatter.date(from: date)
+    }
+    
+    func currentTimeMillis() -> Int64 {
+        return Int64(self.timeIntervalSince1970 * 1000)
+    }
+    
+    func currentTimeSeconds() -> Int64 {
+        return Int64(self.timeIntervalSince1970)
+    }
+
 }
 
 public extension DateFormatter {
