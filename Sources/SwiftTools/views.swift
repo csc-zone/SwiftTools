@@ -44,7 +44,7 @@ public struct ChevronView: View {
     public init() {}
     
     public var body: some View {
-        #if !os(macOS)
+        #if os(iOS)
         Image(systemName: "chevron.right")
             .font(.system(size: 14, weight: .bold))
             .foregroundColor(Color(UIColor.systemGray3))
