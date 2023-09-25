@@ -6,7 +6,7 @@ public struct RectIconView: View {
     let bg: Color
     
     public init(name: String, bg: Color) {
-        self.name = string
+        self.name = name
         self.bg = bg
     }
     
