@@ -16,6 +16,7 @@ public struct RectIconView: View {
             .scaledToFit()
             .font(.system(size: 12, weight: .medium))
             .foregroundColor(Color.white)
+            .frame(width: 18, height: 18)
             .padding(6)
             .background(bg)
             .cornerRadius(8.0)
