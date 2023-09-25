@@ -40,6 +40,8 @@ public struct DeferView<Content: View>: View {
 
 public struct ChevronView: View {
 //    @State var fg: Color = Color(UIColor.systemGray3)
+
+    public init() {}
     
     public var body: some View {
         #if !os(macOS)
