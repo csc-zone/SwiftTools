@@ -47,6 +47,7 @@ public struct ChevronView: View {
         #if !os(macOS)
         Image(systemName: "chevron.right")
             .font(.system(size: 14, weight: .bold))
+            .foregroundColor(Color(UIColor.systemGray3))
         #else
         EmptyView()
         #endif
