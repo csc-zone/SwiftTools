@@ -9,6 +9,13 @@ import Foundation
 import SwiftUI
 
 public extension View {
+
+    @ViewBuilder func modify<Content: View>(
+        @ViewBuilder _ transform: (Self) -> Content
+    ) -> some View {
+        transform(self)
+    }
+
     @ViewBuilder func ifIs<T>(_ condition: Bool, transform: (Self) -> T) -> some View where T: View {
         if condition {
             transform(self)
