@@ -11,7 +11,7 @@ import CommonCrypto
 
 public extension String {
 
-    var md5: String {
+    public var md5: String {
         let data = Data(self.utf8)
         let hash = data.withUnsafeBytes { (bytes: UnsafeRawBufferPointer) -> [UInt8] in
             var hash = [UInt8](repeating: 0, count: Int(CC_MD5_DIGEST_LENGTH))
@@ -83,5 +83,14 @@ public extension String {
 
     var lessLastPathComponent: String {
         return fileURL.deletingPathExtension().lastPathComponent
+    }
+
+    func base64Encoded() -> String? {
+        data(using: .utf8)?.base64EncodedString()
+    }
+
+    func base64Decoded() -> String? {
+        guard let data = Data(base64Encoded: self) else { return nil }
+        return String(data: data, encoding: .utf8)
     }
 }
