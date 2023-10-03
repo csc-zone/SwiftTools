@@ -93,4 +93,30 @@ public extension String {
         guard let data = Data(base64Encoded: self) else { return nil }
         return String(data: data, encoding: .utf8)
     }
+
+    public var isVideoFile: Bool {
+        let videoExtensions = ["mp4", "mov", "avi", "mkv", "flv", "wmv", "webm", "3gp"]
+        let lowercasedFileName = self.lowercased()
+        
+        return videoExtensions.contains { extensionSuffix in
+            lowercasedFileName.hasSuffix(extensionSuffix)
+        }
+    }
+
+    public var nameWithoutSuffix: String {
+        guard let lastDotIndex = self.lastIndex(of: ".") else {
+            return self
+        }
+
+        return String(self.prefix(upTo: lastDotIndex))
+    }
+
+    public var isSubtitleFile: Bool {
+        let subtitleExtensions = [".srt", ".sub", ".ass", ".vtt", ".ssa", ".ttml"] // Add more extensions if needed
+        let lowercasedFileName = self.lowercased()
+        
+        return subtitleExtensions.contains { extensionSuffix in
+            lowercasedFileName.hasSuffix(extensionSuffix)
+        }
+    }
 }
