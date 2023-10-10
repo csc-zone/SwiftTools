@@ -11,7 +11,7 @@ import CommonCrypto
 
 public extension String {
 
-    public var md5: String {
+    var md5: String {
         let data = Data(self.utf8)
         let hash = data.withUnsafeBytes { (bytes: UnsafeRawBufferPointer) -> [UInt8] in
             var hash = [UInt8](repeating: 0, count: Int(CC_MD5_DIGEST_LENGTH))
@@ -94,7 +94,7 @@ public extension String {
         return String(data: data, encoding: .utf8)
     }
 
-    public var isVideoFile: Bool {
+    var isVideoFile: Bool {
         let videoExtensions = ["mp4", "mov", "avi", "mkv", "flv", "wmv", "webm", "3gp"]
         let lowercasedFileName = self.lowercased()
         
@@ -103,7 +103,7 @@ public extension String {
         }
     }
 
-    public var nameWithoutSuffix: String {
+    var nameWithoutSuffix: String {
         guard let lastDotIndex = self.lastIndex(of: ".") else {
             return self
         }
@@ -111,12 +111,18 @@ public extension String {
         return String(self.prefix(upTo: lastDotIndex))
     }
 
-    public var isSubtitleFile: Bool {
+    var isSubtitleFile: Bool {
         let subtitleExtensions = [".srt", ".sub", ".ass", ".vtt", ".ssa", ".ttml"] // Add more extensions if needed
         let lowercasedFileName = self.lowercased()
         
         return subtitleExtensions.contains { extensionSuffix in
             lowercasedFileName.hasSuffix(extensionSuffix)
         }
+    }
+    
+    var isNumber: Bool {
+        return self.range(
+            of: "^[0-9]*$", // 1
+            options: .regularExpression) != nil
     }
 }
