@@ -10,6 +10,10 @@ public extension TimeInterval {
         let minutes = (time / 60) % 60
         let hours = (time / 3600)
 
-        return String(format: format, hours, minutes,seconds)
+        var v = String(format: format, hours, minutes,seconds)
+        if v.hasPrefix("00:") {
+            v = String(v.dropFirst(3))
+        }
+        return v
     }
 }
