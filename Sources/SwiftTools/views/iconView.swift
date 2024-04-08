@@ -20,7 +20,7 @@ public struct RectIconView: View {
     
     public var body: some View {
         if systemName.isEmpty {
-            Image(name: name)
+            Image(name)
                 .resizable()
                 .scaledToFit()
                 .font(.system(size: 12, weight: .medium))
